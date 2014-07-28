@@ -35,6 +35,7 @@ public class test_1 {
 		IeWebDriver.findElement(By.name("userInfo.password")).clear();
 		IeWebDriver.findElement(By.name("userInfo.password")).sendKeys("123");
 		
-		IeWebDriver.findElement(By.xpath("//img[@onclick='javascript:login()']")).click();
+		//IeWebDriver.findElement(By.xpath("//img[@onclick='javascript:login()']")).click();
+		IeWebDriver.findElement(By.xpath("//img[@src='/ILP/images/logindl.gif']")).click();
 	}
 }
