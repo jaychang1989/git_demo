@@ -19,7 +19,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.JavascriptExecutor;
 
 public class test_1 {
@@ -45,6 +44,8 @@ public class test_1 {
 		//IeWebDriver.findElement(By.xpath("//img[@onclick='javascript:login()']")).click();
 		Driver.findElement(By.xpath("//img[@src='/ILP/images/logindl.gif']")).click();
 		
+		Thread.sleep(1000);
+		
 		//选择单人综合实验按钮
 		Driver.findElement(By.xpath("(//input[@name='testCaseType'])[2]")).click();
 		
@@ -53,7 +54,6 @@ public class test_1 {
 		
 		//选择实训任务
 		Driver.findElement(By.xpath("//div[@class='l-grid-row-cell-inner l-grid-row-cell-inner-fixedheight']")).click();
-		
 		
 		/*String CurrentHandle = Driver.getWindowHandle();
 		
@@ -64,7 +64,7 @@ public class test_1 {
 		//点击确定
 		Driver.findElement(By.xpath("//img[@src='images/ok.gif']")).click();
 		
-		
+		Thread.sleep(1000);
 		/*WebDriver Window = Driver.switchTo().window(CurrentHandle);
 		
 		CurrentHandle = Driver.getWindowHandle();
@@ -74,25 +74,34 @@ public class test_1 {
 		System.out.println(Window.getTitle() + "   " + Window.getCurrentUrl());*/
 			
 		//进入买方
-		//Driver.findElement(By.xpath("//map[@id='Map']/area[@coords='378,421,509,485,541,473,532,466,530,402,490,383,490,355,449,330,421,346,420,367,404,359,390,364,389,409']")).click();
-		//Driver.findElement(By.xpath("//area[@href='permissChoose.action?roleId=12']")).click();
-		
 		((JavascriptExecutor) Driver).executeScript("arguments[0].click();", Driver.findElement(By.xpath("//map[@id='Map']/area[6]")));
 		//Driver.findElement(By.xpath("//map[@id='Map']/area[6]")).click();
 		
-		//Thread.sleep(3000);
+		Thread.sleep(1000);
 		
 		//点击订单管理
-		Driver.findElement(By.xpath("//ul[@id='tree1']/li[@treedataindex='0']/div/div[1]")).click();
+		Driver.findElement(By.xpath("//ul[@id='tree1']/li[@treedataindex='0']")).click();
+		//Driver.findElement(By.xpath("//span[text() = '订单管理'][1]")).click();
 		
-		//mai_order(Driver);
+		Driver.findElement(By.xpath("//div[@class='l-body']/span[text()='订单管理']")).click();
+	
+		//点击新增
+		Driver.findElement(By.xpath("//div[@id='mybarTool']/div[2]")).click();
+		
+		
+		
+		
+		
+		
+		
+		//Buyer_order(Driver);
 		
 		//Driver.close();
 		
 	}
 	
 	//买家订单管理
-	public static void mai_order (WebDriver driver){
+	public static void Buyer_order (WebDriver driver){
 		
 		String CurrentHandle = driver.getWindowHandle();
 		
