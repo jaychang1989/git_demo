@@ -21,6 +21,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.JavascriptExecutor;
 
+import com.thoughtworks.selenium.Selenium;
+
 public class test_1 {
 	public static void main(String[] args) throws InterruptedException {
 		//System.out.println("hello, test1");
@@ -64,7 +66,7 @@ public class test_1 {
 		//点击确定
 		Driver.findElement(By.xpath("//img[@src='images/ok.gif']")).click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		/*WebDriver Window = Driver.switchTo().window(CurrentHandle);
 		
 		CurrentHandle = Driver.getWindowHandle();
@@ -77,7 +79,7 @@ public class test_1 {
 		((JavascriptExecutor) Driver).executeScript("arguments[0].click();", Driver.findElement(By.xpath("//map[@id='Map']/area[6]")));
 		//Driver.findElement(By.xpath("//map[@id='Map']/area[6]")).click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		
 		//点击订单管理
 		Driver.findElement(By.xpath("//ul[@id='tree1']/li[@treedataindex='0']")).click();
@@ -86,13 +88,25 @@ public class test_1 {
 		Driver.findElement(By.xpath("//div[@class='l-body']/span[text()='订单管理']")).click();
 	
 		//点击新增
-		Driver.findElement(By.xpath("//div[@id='mybarTool']/div[2]")).click();
+		//Driver.findElement(By.xpath("//div[@id='mybarTool']/div[2]")).click();
 		
 		
+		//Driver.switchTo().defaultContent();
 		
+		//切换frame
+		Driver.switchTo().frame(Driver.findElement(By.xpath("//iframe[@src='manager/modules/orders/orders.jsp?sellerAccept=0']")));
 		
+		//点击新增
+		Driver.findElement(By.xpath("html/body/form/div/div[2]")).click();
 		
+		//点击日期控件框
+		//Driver.findElement(By.xpath("//form[@id='formToor']/table[1]/tbody/tr[2]/td[2]/input[@id='orderDate']")).click();
 		
+		//使用JS设置订货日期
+		((JavascriptExecutor) Driver).executeScript("document.getElementById('orderDate').value='2014-08-21'");
+		
+		//使用JS设置送货日期
+		((JavascriptExecutor) Driver).executeScript("document.getElementById('deliveryDate').value='2014-08-22'");
 		
 		//Buyer_order(Driver);
 		
