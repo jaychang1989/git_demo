@@ -5,7 +5,7 @@
  * @author Administrator
  *
  */
-package com.test_1;
+package com.ilp;
 
 
 import org.openqa.selenium.ie.*;
@@ -15,7 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.JavascriptExecutor;
 
 
-public class test_1 {
+public class ilp {
 	public static void main(String[] args) throws InterruptedException {
 		//System.out.println("hello, test1");
 		
