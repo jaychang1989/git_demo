@@ -9,7 +9,9 @@ package com.ilp;
 
 
 import org.openqa.selenium.ie.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.JavascriptExecutor;
@@ -41,7 +43,12 @@ public class ilp {
 		//点击登录
 		Driver.findElement(By.xpath("//img[@src='/ILP/images/logindl.gif']")).click();
 		
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		
+		//显式等待
+		WebDriverWait wait = new WebDriverWait(Driver, 5);
+		
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@name='testCaseType'])[2]")));
 		
 		//选择单人综合实验按钮
 		Driver.findElement(By.xpath("(//input[@name='testCaseType'])[2]")).click();
@@ -51,12 +58,6 @@ public class ilp {
 		
 		//选择实训任务
 		Driver.findElement(By.xpath("//div[@class='l-grid-row-cell-inner l-grid-row-cell-inner-fixedheight']")).click();
-		
-		/*String CurrentHandle = Driver.getWindowHandle();
-		
-		System.out.println(CurrentHandle);
-		
-		System.out.println(Driver.getTitle() + "   " + Driver.getCurrentUrl());*/
 		
 		//点击确定
 		Driver.findElement(By.xpath("//img[@src='images/ok.gif']")).click();
